@@ -13,7 +13,8 @@ for s in range(numberofruns):
             countP += 1
             if i == p:
                 occurrences += 1
-    total_occurences += occurrences
+    if occurrences >= 1:
+        total_occurences += 1
 chances_of_having_same_birthday = (float(total_occurences)/float(numberofruns))*100
 print "The chance of sharing a birthday over the course of {} students, is {}%.".format(numberofstudents,
                                                                                        chances_of_having_same_birthday)
