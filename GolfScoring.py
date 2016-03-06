@@ -3,6 +3,7 @@ def settings_for_golf():
     par = input("What is the par for the course? ")
     return holes, par
 
+
 def get_score_name(net_score, score_for_hole):
     if score_for_hole == 1:
         score_name = "a bloody hole-in-one, astounding"
