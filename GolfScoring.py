@@ -39,7 +39,7 @@ def golf_score(holes, par):
         elif net_score == 0:
             print "Well done that's par!"
         elif net_score > 0:
-            print "Unlucky that {} over par. That's {}.".format(net_score, score_name)
+            print "Unlucky that's {} over par. That's {}.".format(net_score, score_name)
 
         total_score += score
         while True:
