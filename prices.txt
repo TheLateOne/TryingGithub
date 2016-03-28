@@ -1,0 +1,4 @@
+helo my nam
+is be
+ksdaTime: 2016-03-24 20:57:00 Ticker: CHRT.L Price: 365.00 
+ping
