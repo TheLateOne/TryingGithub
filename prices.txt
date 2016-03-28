@@ -1,4 +1,0 @@
-Time: 2016-03-24 20:00:00 Ticker: AAPL Price: 105.67 
-Time: 2016-03-24 20:00:00 Ticker: AAPL Price: 105.67 
-Time: 2016-03-24 20:00:00 Ticker: AAPL Price: 105.67 
-Time: 2016-03-24 20:00:00 Ticker: AAPL Price: 105.67 
