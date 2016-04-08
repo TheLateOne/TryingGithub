@@ -53,4 +53,5 @@ def inter_minute_data_get(Ticker, Market, Target_File):
         prices.close()
 
 
-inter_minute_data_get(Stock_Ticker, "nyse", file)
+if "__main__" == __name__:
+    inter_minute_data_get(Stock_Ticker, "nyse", file)
