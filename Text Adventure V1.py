@@ -42,7 +42,32 @@ def Lowest_Level():
 	route_as_function()
 
 def FASTER():
-	pass
+	print """You must be brave or foolish to try this route. However, try it you will! You must climb with only
+	your hands up the first stretch of rocks. Chances of slipping are high... As you begin to climb you place both hands
+	on a single boulder."""
+	if Random_Choice(1,4):
+		print """The boulder holds your whole weight. You swing a foot out and place it in a rocky crevice. You see a 
+		small scuttling movement."""
+		if Random_Choice(1,2):
+			print "It's just a spider"
+			print """Unphased you pull yourself higher. You make good progress and can nearly see the top of the cliff 
+			face. However as you reach to grab the edge your other hand slips."""
+			if Random_Choice(1,5):
+				print """Like a verifiable badass you launch off with your feet, grab the cliff edge and pull yourself up. 
+				You are exhausted but glad to see that you've made significant progress and notice that the route from
+				here seems a little easier."""
+			else:
+				print """As you fall you wonder what will be written on your tombstone. Perhaps 
+				'In Haste {} Forgot Self-Preservation'""".format(name)
+		else:
+			print """It's a spider!! You swing your foot out of the hole and the momentum causes you to slip and fall back
+			to the bottom of the rock face. Clearly you need to rethink your phobia of spiders and visit a psychologist instead
+			of continuing this fools errand of climbing a mountain."""
+
+	else:
+		print """Ah... the boulder isn't so stable after all. It slips and falls down smashing into the top of your head...
+		You feel disheartened (and bruised) and decide that perhaps mountain climbing isn't a sport you'd like to take up
+		after all. Defeated you head home."""
 
 def SLOWER():
 	pass
@@ -77,7 +102,6 @@ def WALK():
 		print """As you come out of the crevice you see that the climb levels off just above so you climb to a small plateau
 		and admire the scenery"""
 		WALK_Second_Level()
-
 
 
 def WALK_Second_Level():
