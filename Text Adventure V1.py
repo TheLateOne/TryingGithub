@@ -52,10 +52,11 @@ def FASTER():
 			print "It's just a spider"
 			print """Unphased you pull yourself higher. You make good progress and can nearly see the top of the cliff 
 			face. However as you reach to grab the edge your other hand slips."""
-			if Random_Choice(1,5):
+			if Random_Choice(1,3):
 				print """Like a verifiable badass you launch off with your feet, grab the cliff edge and pull yourself up. 
 				You are exhausted but glad to see that you've made significant progress and notice that the route from
 				here seems a little easier."""
+				FASTER_Second_Level()
 			else:
 				print """As you fall you wonder what will be written on your tombstone. Perhaps 
 				'In Haste {} Forgot Self-Preservation'""".format(name)
@@ -69,8 +70,105 @@ def FASTER():
 		You feel disheartened (and bruised) and decide that perhaps mountain climbing isn't a sport you'd like to take up
 		after all. Defeated you head home."""
 
-def SLOWER():
+def FASTER_Second_Level():
 	pass
+
+def SLOWER():
+	print """It seems that many people have gone down this route before; reassuring. As you stride up the hill you make
+	good progress. Although the ground is slippy when you look back you can tell you've gone a fair distance already. As 
+	you continue there is a small woods to your left. Do you want to adventure into the woods (if not you'll continue up
+	the mountain)?"""
+	woods_choice = YoN()
+	if woods_choice	== "Yes":
+		Into_the_Woods()
+	else:
+		print """You don't want to stray into the woods, there could be all kinds of things in there (good and bad).
+		Instead you press on along the path. You soon reach a viewing point where you can see both up and down the mountain.
+		Bad news: you're not as far up as you'd hoped. You've only climbed a quarter of the mountain so far. Good news: the 
+		view is spectacular from up here."""
+
+def Into_the_Woods():
+	print """As you enter the woods you hear a dull thudding like an axe being swung at a tree. Do you want to walk towards
+	the noise?"""
+	woods_noise = YoN()
+	if woods_noise == "YES":
+		print """You head towards to the noise. You eventually come to a clearing and as expected there is a woodsman
+		chopping down a tree. At the edge of the clearing is a wooden hut (presumably where the woodsman lives). Do you
+		want to talk to the woodsman or sneak around to his hut?"""
+		while True:
+			clearing_choice = raw_input("[HUT] or [WOODSMAN]? \n >> ")
+			if clearing_choice == "HUT":
+				print """You stick to the edge of the woods and make your way round to the hut. You try the door and it's
+				unlocked. Inside there is a rope hanging on the wall, walking boots, a climbing harness, a handheld axe and
+				a fur coat. Would you like to take anything?"""
+				hut_item = raw_input("[ROPE], [BOOTS], [HARNESS], [AXE], [COAT], [NONE]")
+				if hut_item	== "NONE":
+					print """You decide it's probably safest just to leave so you walk back into the clearing and into
+					the cover of the trees. You can still talk to the woodsman if you'd like. Would you like to talk
+					to him?"""
+					if YoN():
+						Woodsman_Interaction()
+					else:
+						"""Do you want to talk to a man with an axe? Not today thank you, especailly having just broken
+						into his hut. Instead {} decides to wander back into the woods, exploring further.""".format(name)
+						Back_to_the_Woods()
+				else:
+					try:
+						item1 = eval(hut_item)
+						item1
+					except NameError:
+						print Failure_to_Type
+					if Random_Choice(1,10):
+						Woodsman_Surprise()	
+					
+			if clearing_choice == "WOODSMAN":
+				Woodsman_Interaction()
+
+def ROPE():
+	inventory["Rope"] = random.randint(1,8)
+	print "Congratulations you pick up the rope and put it in your inventory!"
+def BOOTS():
+	inventory["Boots"] = random.randint(1,8)
+	print "Congratulations you pick up the boots and put it in your inventory!"
+def HARNESS():
+	inventory["Harness"] = random.randint(1,8)
+	print "Congratulations you pick up the harness and put it in your inventory!"
+def AXE():
+	inventory["Axe"] = random.randint(1,8)
+	print "Congratulations you pick up the axe and put it in your inventory!"
+def COAT():
+	inventory["Coat"] = random.randint(1,8)
+	print "Congratulations you pick up the coat and put it in your inventory!"
+
+
+def Woodsman_Surprise():
+	print """As you are ransacking the Woodsman's hut he bursts through the door, axe in hand, rage in his eyes. 
+	You consider that perhaps stealing from a man in the middle of nowhere may be a bad idea. The woodsman goes
+	all 'Little Red Riding Hood' on you and you are never heard from again!"""
+	exit()
+
+def Woodsman_Interaction():
+	print """You talk to the woodsman and explain your goal of climbing the mountain. He seems slightly confused as to 
+	why you're in the woods if your goal is to climb the mountain."""
+	if Random_Choice(1,4):
+		print """The woodsman becomes so enfuriated with your pedantic and dull conversation he starts swearing and
+		gesturing with his axe. Sensing danger you back into the woods but the woodsman chases you. Fearing for your life
+		you run back down to the foot of the mountain and into the nearby village. You recount your tale over a glass of
+		ale and vow never to step foot on that mountain again."""
+		exit()
+	else:
+		print """Sensing your complete inability to climb mountains in an efficient manner he invites you over to
+		his hut and hands you a rope and a fur coat, telling you that you must respect the mountain and exercise proper
+		safety measures especially when rock climbing. Emboldened by your new equipment you head back into the forest 
+		in search of more useful gear."""
+		inventory["Rope"] = 9
+		inventory["Coat"] = 3
+		Back_to_the_Woods()
+
+def Back_to_the_Woods():
+	pass
+
+
 
 def WALK():
 	print """As you walk around the mountain you narrowly avoid a landslide which blocks off your route back to the start.
@@ -107,4 +205,5 @@ def WALK():
 def WALK_Second_Level():
 	pass
 
-Welcome_Player()
+#Welcome_Player()
+Into_the_Woods()
